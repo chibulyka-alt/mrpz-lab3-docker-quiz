@@ -7,11 +7,9 @@ var quiz = new Quiz(pointsPerCorrect: 10);
 
 PrintState("Initial state", quiz);
 
-
-quiz.Answer(true);  
-quiz.Answer(false);  
-quiz.Answer(true);  
-
+quiz.Answer(true);
+quiz.Answer(false);
+quiz.Answer(true);
 
 PrintState("After answering questions", quiz);
 
