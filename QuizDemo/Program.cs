@@ -1,18 +1,32 @@
-﻿using QuizGame;
+using QuizGame;
+
+Console.WriteLine("=== Lab 3: Quiz Demo Application ===");
+Console.WriteLine();
 
 var quiz = new Quiz(pointsPerCorrect: 10);
 
-Console.WriteLine("=== Quiz demo (Lab 3) ===");
-Console.WriteLine($"Score: {quiz.Score}, Correct: {quiz.CorrectAnswers}, Total: {quiz.TotalAnswers}, Accuracy: {quiz.AccuracyPercent:0.##}%");
+PrintState("Initial state", quiz);
 
-quiz.Answer(true);
-quiz.Answer(false);
-quiz.Answer(true);
 
-Console.WriteLine("After answers:");
-Console.WriteLine($"Score: {quiz.Score}, Correct: {quiz.CorrectAnswers}, Total: {quiz.TotalAnswers}, Accuracy: {quiz.AccuracyPercent:0.##}%");
+quiz.Answer(true);  
+quiz.Answer(false);  
+quiz.Answer(true);  
+
+
+PrintState("After answering questions", quiz);
 
 quiz.Reset();
 
-Console.WriteLine("After reset:");
-Console.WriteLine($"Score: {quiz.Score}, Correct: {quiz.CorrectAnswers}, Total: {quiz.TotalAnswers}, Accuracy: {quiz.AccuracyPercent:0.##}%");
+PrintState("After reset", quiz);
+
+Console.WriteLine("Demo finished.");
+
+static void PrintState(string title, Quiz quiz)
+{
+    Console.WriteLine(title);
+    Console.WriteLine($"Score: {quiz.Score}");
+    Console.WriteLine($"Correct answers: {quiz.CorrectAnswers}");
+    Console.WriteLine($"Total answers: {quiz.TotalAnswers}");
+    Console.WriteLine($"Accuracy: {quiz.AccuracyPercent:0.##}%");
+    Console.WriteLine();
+}
